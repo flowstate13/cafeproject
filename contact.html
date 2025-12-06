@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Bohème - Contact</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-coffee"></i>
+                    <span>Café Bohème</span>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="user-btn" id="user-btn" title="Compte utilisateur">
+                        <i class="fas fa-user"></i>
+                        <span class="user-name">Connexion</span>
+                    </button>
+                    <a href="menu.html#order" class="cart-btn" id="header-cart-btn" title="Panier">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Header -->
+    <section class="contact-header">
+        <div class="container">
+            <h1>Contactez-nous</h1>
+            <p>N'hésitez pas à nous contacter pour toute question ou suggestion</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Formulaire de contact -->
+                <div class="contact-form-container">
+                    <h2>Envoyez-nous un message</h2>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">
+                                <i class="fas fa-user"></i> Nom complet
+                            </label>
+                            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                            <span class="error-message" id="name-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Email
+                            </label>
+                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i> Téléphone (optionnel)
+                            </label>
+                            <input type="tel" id="phone" name="phone" placeholder="+216 12 345 678">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                <i class="fas fa-tag"></i> Sujet
+                            </label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="information">Demande d'information</option>
+                                <option value="reservation">Réservation</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Autre</option>
+                            </select>
+                            <span class="error-message" id="subject-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">
+                                <i class="fas fa-comment"></i> Message
+                            </label>
+                            <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+                            <span class="error-message" id="message-error"></span>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Envoyer le message
+                        </button>
+                    </form>
+                    <div id="success-message" class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Votre message a été envoyé avec succès! Nous vous répondrons dans les plus brefs délais.</p>
+                    </div>
+                </div>
+
+                <!-- Informations de contact -->
+                <div class="contact-info">
+                    <h2>Nos Coordonnées</h2>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Adresse</h3>
+                            <p>Avenue Habib Bourguiba<br>Sousse, Tunisie</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Téléphone</h3>
+                            <p>+216 12 345 678</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Email</h3>
+                            <p>contact@cafedelices.tn</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Horaires</h3>
+                            <p>Lun - Ven: 7h00 - 20h00<br>Sam - Dim: 8h00 - 22h00</p>
+                        </div>
+                    </div>
+                    <div class="social-section">
+                        <h3>Suivez-nous</h3>
+                        <div class="social-links-large">
+                            <a href="#" class="social-link facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2>Notre Emplacement</h2>
+            <div id="map" class="map-container">
+                <!-- Google Map will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Café Bohème</h3>
+                    <p>L'excellence du café artisanal dans une ambiance bohème et raffinée.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Horaires d'ouverture</h3>
+                    <p>Lundi - Vendredi: 7h00 - 20h00</p>
+                    <p>Samedi - Dimanche: 8h00 - 22h00</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone"></i> +216 12 345 678</p>
+                    <p><i class="fas fa-envelope"></i> contact@cafeboheme.tn</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Avenue Habib Bourguiba, Sousse</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Café Bohème. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/map-simple.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Bohème - Menu</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-coffee"></i>
+                    <span>Café Bohème</span>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="menu.html" class="active">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Mode sombre">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="user-btn" id="user-btn" title="Compte utilisateur">
+                        <i class="fas fa-user"></i>
+                        <span class="user-name">Connexion</span>
+                    </button>
+                    <a href="#order" class="cart-btn" id="header-cart-btn" title="Panier">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Header -->
+    <section class="menu-header">
+        <div class="container">
+            <h1>Notre Carte</h1>
+            <p>Une sélection raffinée de boissons et délices gourmands</p>
+        </div>
+    </section>
+
+    <!-- Filtres et Tri -->
+    <section class="menu-controls">
+        <div class="container">
+            <div class="controls-wrapper">
+                <div class="filter-controls">
+                    <h3>Catégories:</h3>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-category="all">Tous</button>
+                        <button class="filter-btn" data-category="boissons-chaudes">Boissons Chaudes</button>
+                        <button class="filter-btn" data-category="boissons-froides">Boissons Froides</button>
+                        <button class="filter-btn" data-category="patisseries">Pâtisseries</button>
+                        <button class="filter-btn" data-category="sandwiches">Sandwiches</button>
+                    </div>
+                </div>
+                <div class="sort-controls">
+                    <label for="sort-select">Trier par:</label>
+                    <select id="sort-select">
+                        <option value="default">Par défaut</option>
+                        <option value="price-asc">Prix croissant</option>
+                        <option value="price-desc">Prix décroissant</option>
+                        <option value="popularity">Popularité</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Liste des produits -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-grid" id="menu-grid">
+                <!-- Les produits seront générés dynamiquement par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Commande -->
+    <section class="order-section">
+        <div class="container">
+            <h2>Votre Commande</h2>
+            <div class="order-content">
+                <div class="cart-items" id="cart-items">
+                    <p class="empty-cart">Votre panier est vide</p>
+                </div>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Sous-total:</span>
+                        <span id="subtotal">0.00 TND</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>TVA (13%):</span>
+                        <span id="tax">0.00 TND</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">0.00 TND</span>
+                    </div>
+                    <button class="checkout-btn" id="checkout-btn">Commander</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Facture -->
+    <div class="modal" id="invoice-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="invoice">
+                <h2><i class="fas fa-receipt"></i> Facture</h2>
+                <div class="invoice-header">
+                    <p><strong>Café Bohème</strong></p>
+                    <p>Avenue Habib Bourguiba, Sousse</p>
+                    <p>Tél: +216 12 345 678</p>
+                    <hr>
+                    <p>Date: <span id="invoice-date"></span></p>
+                </div>
+                <div class="invoice-items" id="invoice-items">
+                    <!-- Items will be inserted here -->
+                </div>
+                <div class="invoice-totals">
+                    <div class="invoice-row">
+                        <span>Sous-total:</span>
+                        <span id="invoice-subtotal">0.00 TND</span>
+                    </div>
+                    <div class="invoice-row">
+                        <span>TVA (13%):</span>
+                        <span id="invoice-tax">0.00 TND</span>
+                    </div>
+                    <div class="invoice-row total">
+                        <span><strong>Total:</strong></span>
+                        <span id="invoice-total"><strong>0.00 TND</strong></span>
+                    </div>
+                </div>
+                <div class="invoice-footer">
+                    <p>Merci pour votre visite!</p>
+                    <button class="print-btn" onclick="window.print()">
+                        <i class="fas fa-print"></i> Imprimer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Café Bohème</h3>
+                    <p>L'excellence du café artisanal dans une ambiance bohème et raffinée.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Horaires d'ouverture</h3>
+                    <p>Lundi - Vendredi: 7h00 - 20h00</p>
+                    <p>Samedi - Dimanche: 8h00 - 22h00</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone"></i> +216 12 345 678</p>
+                    <p><i class="fas fa-envelope"></i> contact@cafeboheme.tn</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Avenue Habib Bourguiba, Sousse</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Café Bohème. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Détails Produit -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content product-modal-content">
+            <span class="close-modal" id="close-product-modal">&times;</span>
+            <div class="product-modal-body" id="product-modal-body">
+                <!-- Product details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal d'authentification -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-content auth-modal-content">
+            <span class="close-modal" id="close-auth-modal">&times;</span>
+            <div class="auth-form" id="login-form-container">
+                <h2><i class="fas fa-sign-in-alt"></i> Connexion</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="login-email" required placeholder="votre@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password"><i class="fas fa-lock"></i> Mot de passe</label>
+                        <input type="password" id="login-password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-btn">Se connecter</button>
+                </form>
+                <p class="auth-switch">Pas encore de compte ? <a href="#" id="show-register">S'inscrire</a></p>
+            </div>
+            <div class="auth-form" id="register-form-container" style="display: none;">
+                <h2><i class="fas fa-user-plus"></i> Inscription</h2>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-name"><i class="fas fa-user"></i> Nom complet</label>
+                        <input type="text" id="register-name" required placeholder="Jean Dupont">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="register-email" required placeholder="votre@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password"><i class="fas fa-lock"></i> Mot de passe</label>
+                        <input type="password" id="register-password" required placeholder="Min. 6 caractères">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm"><i class="fas fa-lock"></i> Confirmer le mot de passe</label>
+                        <input type="password" id="register-confirm" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-btn">S'inscrire</button>
+                </form>
+                <p class="auth-switch">Déjà un compte ? <a href="#" id="show-login">Se connecter</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
