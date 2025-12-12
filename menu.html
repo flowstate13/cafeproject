@@ -13,10 +13,10 @@
     <header class="header">
         <div class="container">
             <div class="nav-wrapper">
-                <div class="logo">
+                <a class="logo" href="index.html">
                     <i class="fas fa-coffee"></i>
                     <span>Café Bohème</span>
-                </div>
+                </a>
                 <nav class="nav-menu">
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
@@ -25,14 +25,10 @@
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Mode sombre">
+                    <button class="icon-btn" id="theme-toggle" title="Basculer le thème">
                         <i class="fas fa-moon"></i>
                     </button>
-                    <button class="user-btn" id="user-btn" title="Compte utilisateur">
-                        <i class="fas fa-user"></i>
-                        <span class="user-name">Connexion</span>
-                    </button>
-                    <a href="#order" class="cart-btn" id="header-cart-btn" title="Panier">
+                    <a href="basket.html" class="cart-btn" title="Panier">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count" id="cart-count">0</span>
                     </a>
@@ -49,108 +45,72 @@
         </div>
     </section>
 
-    <!-- Filtres et Tri -->
-    <section class="menu-controls">
-        <div class="container">
-            <div class="controls-wrapper">
-                <div class="filter-controls">
-                    <h3>Catégories:</h3>
-                    <div class="filter-buttons">
-                        <button class="filter-btn active" data-category="all">Tous</button>
-                        <button class="filter-btn" data-category="boissons-chaudes">Boissons Chaudes</button>
-                        <button class="filter-btn" data-category="boissons-froides">Boissons Froides</button>
-                        <button class="filter-btn" data-category="patisseries">Pâtisseries</button>
-                        <button class="filter-btn" data-category="sandwiches">Sandwiches</button>
-                    </div>
-                </div>
-                <div class="sort-controls">
-                    <label for="sort-select">Trier par:</label>
-                    <select id="sort-select">
-                        <option value="default">Par défaut</option>
-                        <option value="price-asc">Prix croissant</option>
-                        <option value="price-desc">Prix décroissant</option>
-                        <option value="popularity">Popularité</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Liste des produits -->
     <section class="menu-section">
         <div class="container">
-            <div class="menu-grid" id="menu-grid">
-                <!-- Les produits seront générés dynamiquement par JavaScript -->
+            <div class="controls">
+                <button class="chip active" data-category="all">Tout</button>
+                <button class="chip" data-category="boissons-chaudes">Boissons chaudes</button>
+                <button class="chip" data-category="boissons-froides">Boissons froides</button>
+                <button class="chip" data-category="patisseries">Pâtisseries</button>
+                <button class="chip" data-category="sandwiches">Sandwiches</button>
+                <select id="sort-select" class="chip" style="margin-left:auto;min-width:180px;">
+                    <option value="default">Tri : défaut</option>
+                    <option value="price-asc">Prix croissant</option>
+                    <option value="price-desc">Prix décroissant</option>
+                </select>
             </div>
+            <div class="menu-grid" id="menu-grid"></div>
         </div>
     </section>
 
-    <!-- Section Commande -->
-    <section class="order-section">
+    <section>
         <div class="container">
-            <h2>Votre Commande</h2>
-            <div class="order-content">
-                <div class="cart-items" id="cart-items">
-                    <p class="empty-cart">Votre panier est vide</p>
-                </div>
-                <div class="cart-summary">
-                    <div class="summary-row">
-                        <span>Sous-total:</span>
-                        <span id="subtotal">0.00 TND</span>
+            <div class="panel builder-panel">
+                <p class="tag">Nouveau</p>
+                <h2 class="section-title">Votre café sur-mesure</h2>
+                <p class="text-muted">Choisissez la taille, le lait et les extras puis ajoutez votre création au panier.</p>
+                <form id="custom-coffee-form" class="mt">
+                    <div class="builder-grid">
+                        <label>Format
+                            <select name="size" required>
+                                <option value="Petit|3.5">Petit (3.50 TND)</option>
+                                <option value="Moyen|4.2" selected>Moyen (4.20 TND)</option>
+                                <option value="Grand|5">Grand (5.00 TND)</option>
+                            </select>
+                        </label>
+                        <label>Intensité
+                            <select name="roast" required>
+                                <option value="Doux">Doux</option>
+                                <option value="Classique" selected>Classique</option>
+                                <option value="Corsé">Corsé</option>
+                            </select>
+                        </label>
+                        <label>Lait
+                            <select name="milk" required>
+                                <option value="Vache">Lait de vache</option>
+                                <option value="Amande">Amande (+0.4)</option>
+                                <option value="Avoine">Avoine (+0.4)</option>
+                            </select>
+                        </label>
+                        <label>Sirop
+                            <select name="syrup">
+                                <option value="Sans sirop">Sans sirop</option>
+                                <option value="Vanille">Vanille (+0.3)</option>
+                                <option value="Caramel">Caramel (+0.3)</option>
+                                <option value="Noisette">Noisette (+0.3)</option>
+                            </select>
+                        </label>
                     </div>
-                    <div class="summary-row">
-                        <span>TVA (13%):</span>
-                        <span id="tax">0.00 TND</span>
+                    <div class="pill-list mt">
+                        <label class="pill"><input type="checkbox" name="extras" value="Chantilly"> Chantilly (+0.3)</label>
+                        <label class="pill"><input type="checkbox" name="extras" value="Poudre cacao"> Poudre cacao (+0.2)</label>
+                        <label class="pill"><input type="checkbox" name="extras" value="Shot espresso"> Shot espresso (+0.8)</label>
                     </div>
-                    <div class="summary-row total">
-                        <span>Total:</span>
-                        <span id="total">0.00 TND</span>
-                    </div>
-                    <button class="checkout-btn" id="checkout-btn">Commander</button>
-                </div>
+                    <button class="btn mt" type="submit"><i class="fas fa-mug-hot"></i> Ajouter ma création</button>
+                </form>
             </div>
         </div>
     </section>
-
-    <!-- Modal Facture -->
-    <div class="modal" id="invoice-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="invoice">
-                <h2><i class="fas fa-receipt"></i> Facture</h2>
-                <div class="invoice-header">
-                    <p><strong>Café Bohème</strong></p>
-                    <p>Avenue Habib Bourguiba, Sousse</p>
-                    <p>Tél: +216 12 345 678</p>
-                    <hr>
-                    <p>Date: <span id="invoice-date"></span></p>
-                </div>
-                <div class="invoice-items" id="invoice-items">
-                    <!-- Items will be inserted here -->
-                </div>
-                <div class="invoice-totals">
-                    <div class="invoice-row">
-                        <span>Sous-total:</span>
-                        <span id="invoice-subtotal">0.00 TND</span>
-                    </div>
-                    <div class="invoice-row">
-                        <span>TVA (13%):</span>
-                        <span id="invoice-tax">0.00 TND</span>
-                    </div>
-                    <div class="invoice-row total">
-                        <span><strong>Total:</strong></span>
-                        <span id="invoice-total"><strong>0.00 TND</strong></span>
-                    </div>
-                </div>
-                <div class="invoice-footer">
-                    <p>Merci pour votre visite!</p>
-                    <button class="print-btn" onclick="window.print()">
-                        <i class="fas fa-print"></i> Imprimer
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -186,65 +146,7 @@
         </div>
     </footer>
 
-    <!-- Modal Détails Produit -->
-    <div class="modal" id="product-modal">
-        <div class="modal-content product-modal-content">
-            <span class="close-modal" id="close-product-modal">&times;</span>
-            <div class="product-modal-body" id="product-modal-body">
-                <!-- Product details will be inserted here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal d'authentification -->
-    <div class="modal" id="auth-modal">
-        <div class="modal-content auth-modal-content">
-            <span class="close-modal" id="close-auth-modal">&times;</span>
-            <div class="auth-form" id="login-form-container">
-                <h2><i class="fas fa-sign-in-alt"></i> Connexion</h2>
-                <form id="login-form">
-                    <div class="form-group">
-                        <label for="login-email"><i class="fas fa-envelope"></i> Email</label>
-                        <input type="email" id="login-email" required placeholder="votre@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="login-password"><i class="fas fa-lock"></i> Mot de passe</label>
-                        <input type="password" id="login-password" required placeholder="••••••••">
-                    </div>
-                    <button type="submit" class="auth-btn">Se connecter</button>
-                </form>
-                <p class="auth-switch">Pas encore de compte ? <a href="#" id="show-register">S'inscrire</a></p>
-            </div>
-            <div class="auth-form" id="register-form-container" style="display: none;">
-                <h2><i class="fas fa-user-plus"></i> Inscription</h2>
-                <form id="register-form">
-                    <div class="form-group">
-                        <label for="register-name"><i class="fas fa-user"></i> Nom complet</label>
-                        <input type="text" id="register-name" required placeholder="Jean Dupont">
-                    </div>
-                    <div class="form-group">
-                        <label for="register-email"><i class="fas fa-envelope"></i> Email</label>
-                        <input type="email" id="register-email" required placeholder="votre@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="register-password"><i class="fas fa-lock"></i> Mot de passe</label>
-                        <input type="password" id="register-password" required placeholder="Min. 6 caractères">
-                    </div>
-                    <div class="form-group">
-                        <label for="register-confirm"><i class="fas fa-lock"></i> Confirmer le mot de passe</label>
-                        <input type="password" id="register-confirm" required placeholder="••••••••">
-                    </div>
-                    <button type="submit" class="auth-btn">S'inscrire</button>
-                </form>
-                <p class="auth-switch">Déjà un compte ? <a href="#" id="show-login">Se connecter</a></p>
-            </div>
-        </div>
-    </div>
-
     <script src="js/theme.js"></script>
-    <script src="js/favorites.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/effects.js"></script>
     <script src="js/menu.js"></script>
 </body>
 </html>

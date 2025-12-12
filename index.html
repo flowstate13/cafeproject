@@ -13,10 +13,10 @@
     <header class="header">
         <div class="container">
             <div class="nav-wrapper">
-                <div class="logo">
+                <a class="logo" href="index.html">
                     <i class="fas fa-coffee"></i>
                     <span>Café Bohème</span>
-                </div>
+                </a>
                 <nav class="nav-menu">
                     <ul>
                         <li><a href="index.html" class="active">Accueil</a></li>
@@ -25,14 +25,10 @@
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Mode sombre">
+                    <button class="icon-btn" id="theme-toggle" title="Basculer le thème">
                         <i class="fas fa-moon"></i>
                     </button>
-                    <button class="user-btn" id="user-btn" title="Compte utilisateur">
-                        <i class="fas fa-user"></i>
-                        <span class="user-name">Connexion</span>
-                    </button>
-                    <a href="menu.html#order" class="cart-btn" id="header-cart-btn" title="Panier">
+                    <a href="basket.html" class="cart-btn" title="Panier">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count" id="cart-count">0</span>
                     </a>
@@ -41,86 +37,72 @@
         </div>
     </header>
 
-    <!-- Bannière principale avec slideshow -->
+    <!-- Hero Banner -->
     <section class="hero-banner">
-        <div class="slideshow-container">
-            <div class="slide fade">
-                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&h=600&fit=crop" alt="Café intérieur">
-                <div class="hero-content">
-                    <h1 class="hero-title">L'Art du Café Réinventé</h1>
-                    <p class="hero-subtitle">Un voyage sensoriel dans l'univers des cafés d'exception</p>
-                </div>
+        <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&h=600&fit=crop" alt="Café intérieur">
+            <div class="hero-content">
+                <h1>L'Art du Café Réinventé</h1>
+                <p>Un voyage sensoriel dans l'univers des cafés d'exception</p>
             </div>
-            <div class="slide fade">
-                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&h=600&fit=crop" alt="Tasse de café">
-                <div class="hero-content">
-                    <h1 class="hero-title">Passion & Authenticité</h1>
-                    <p class="hero-subtitle">Chaque tasse raconte une histoire unique</p>
-                </div>
-            </div>
-            <div class="slide fade">
-                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200&h=600&fit=crop" alt="Ambiance café">
-                <div class="hero-content">
-                    <h1 class="hero-title">Votre Refuge Urbain</h1>
-                    <p class="hero-subtitle">Où chaque moment devient une expérience inoubliable</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section>
+        <div class="container">
+            <div class="panel">
+                <div class="split">
+                    <div>
+                        <span class="tag">Depuis 2020</span>
+                        <h2 class="section-title">Bienvenue au Café Bohème</h2>
+                        <p>Niché au cœur de Sousse, Café Bohème est bien plus qu'un simple café. C'est un sanctuaire urbain où l'art du café rencontre l'élégance contemporaine, créant une expérience sensorielle unique.</p>
+                        <p>Nous sélectionnons avec soin nos grains de café auprès de producteurs locaux et internationaux, garantissant ainsi une qualité exceptionnelle dans chaque tasse. Notre équipe passionnée prépare chaque boisson avec attention et savoir-faire.</p>
+                        <p>Que vous veniez pour travailler, lire, ou simplement profiter d'un moment de détente, notre atmosphère conviviale et notre service attentionné feront de votre visite une expérience inoubliable.</p>
+                        <a href="menu.html" class="cta mt">
+                            <span>Découvrir notre menu</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&h=800&fit=crop" alt="Intérieur du café" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Présentation du Café -->
-    <section class="about-section">
+    <!-- Values Section -->
+    <section style="background: var(--card);">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Bienvenue au Café Bohème</h2>
-                    <p>Niché au cœur de Sousse, Café Bohème est bien plus qu'un simple café. C'est un sanctuaire urbain où l'art du café rencontre l'élégance contemporaine, créant une expérience sensorielle unique.</p>
-                    <p>Nous sélectionnons avec soin nos grains de café auprès de producteurs locaux et internationaux, garantissant ainsi une qualité exceptionnelle dans chaque tasse. Notre équipe passionnée prépare chaque boisson avec attention et savoir-faire.</p>
-                    <p>Que vous veniez pour travailler, lire, ou simplement profiter d'un moment de détente, notre atmosphère conviviale et notre service attentionné feront de votre visite une expérience inoubliable.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&h=800&fit=crop" alt="Intérieur du café">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Nos Valeurs -->
-    <section class="values-section">
-        <div class="container">
-            <h2 class="section-title">Nos Valeurs</h2>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
+            <h2 class="section-title center">Nos Valeurs</h2>
+            <p class="center text-muted">Ce qui fait de Café Bohème un lieu unique</p>
+            
+            <div class="cards mt">
+                <div class="panel">
+                    <div class="info-icon" style="margin: 0 auto 12px;">
                         <i class="fas fa-leaf"></i>
                     </div>
-                    <h3>Produits Locaux</h3>
-                    <p>Nous privilégions les produits locaux et biologiques pour soutenir notre communauté et l'environnement.</p>
+                    <h3 class="center">Produits Locaux</h3>
+                    <p class="center">Nous privilégions les produits locaux et biologiques pour soutenir notre communauté et l'environnement.</p>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
+                
+                <div class="panel">
+                    <div class="info-icon" style="margin: 0 auto 12px;">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <h3>Service Amical</h3>
-                    <p>Notre équipe accueillante est toujours là pour vous servir avec le sourire et vous faire sentir comme chez vous.</p>
+                    <h3 class="center">Service Amical</h3>
+                    <p class="center">Notre équipe accueillante est toujours là pour vous servir avec le sourire et vous faire sentir comme chez vous.</p>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
+                
+                <div class="panel">
+                    <div class="info-icon" style="margin: 0 auto 12px;">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Ambiance Conviviale</h3>
-                    <p>Un espace chaleureux où chacun se sent bienvenu, parfait pour se détendre ou travailler dans le calme.</p>
+                    <h3 class="center">Ambiance Conviviale</h3>
+                    <p class="center">Un espace chaleureux où chacun se sent bienvenu, parfait pour se détendre ou travailler dans le calme.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Découvrez nos délices</h2>
-            <p>Explorez notre menu et passez votre commande dès maintenant</p>
-            <a href="menu.html" class="cta-button">Découvrez notre menu</a>
         </div>
     </section>
 
@@ -158,59 +140,22 @@
         </div>
     </footer>
 
-    <!-- Modal d'authentification -->
-    <div class="modal" id="auth-modal">
-        <div class="modal-content auth-modal-content">
-            <span class="close-modal" id="close-auth-modal">&times;</span>
-            
-            <!-- Formulaire de connexion -->
-            <div class="auth-form" id="login-form-container">
-                <h2><i class="fas fa-sign-in-alt"></i> Connexion</h2>
-                <form id="login-form">
-                    <div class="form-group">
-                        <label for="login-email"><i class="fas fa-envelope"></i> Email</label>
-                        <input type="email" id="login-email" required placeholder="votre@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="login-password"><i class="fas fa-lock"></i> Mot de passe</label>
-                        <input type="password" id="login-password" required placeholder="••••••••">
-                    </div>
-                    <button type="submit" class="auth-btn">Se connecter</button>
-                </form>
-                <p class="auth-switch">Pas encore de compte ? <a href="#" id="show-register">S'inscrire</a></p>
-            </div>
-            
-            <!-- Formulaire d'inscription -->
-            <div class="auth-form" id="register-form-container" style="display: none;">
-                <h2><i class="fas fa-user-plus"></i> Inscription</h2>
-                <form id="register-form">
-                    <div class="form-group">
-                        <label for="register-name"><i class="fas fa-user"></i> Nom complet</label>
-                        <input type="text" id="register-name" required placeholder="Jean Dupont">
-                    </div>
-                    <div class="form-group">
-                        <label for="register-email"><i class="fas fa-envelope"></i> Email</label>
-                        <input type="email" id="register-email" required placeholder="votre@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="register-password"><i class="fas fa-lock"></i> Mot de passe</label>
-                        <input type="password" id="register-password" required placeholder="Min. 6 caractères">
-                    </div>
-                    <div class="form-group">
-                        <label for="register-confirm"><i class="fas fa-lock"></i> Confirmer le mot de passe</label>
-                        <input type="password" id="register-confirm" required placeholder="••••••••">
-                    </div>
-                    <button type="submit" class="auth-btn">S'inscrire</button>
-                </form>
-                <p class="auth-switch">Déjà un compte ? <a href="#" id="show-login">Se connecter</a></p>
-            </div>
-        </div>
-    </div>
-
     <script src="js/theme.js"></script>
-    <script src="js/favorites.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/effects.js"></script>
-    <script src="js/home.js"></script>
+    <script>
+        // Simple slideshow (if you want multiple slides, add more)
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+        }
+        
+        // Auto-advance every 5 seconds (optional)
+        // setInterval(() => {
+        //     currentSlide = (currentSlide + 1) % slides.length;
+        //     showSlide(currentSlide);
+        // }, 5000);
+    </script>
 </body>
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Bohème - Panier</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a class="logo" href="index.html">
+                    <i class="fas fa-coffee"></i>
+                    <span>Café Bohème</span>
+                </a>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="basket.html" class="active">Panier</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="icon-btn" id="theme-toggle" title="Basculer le thème">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="basket.html" class="cart-btn" title="Panier">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="menu-header">
+        <div class="container center">
+            <h1>Votre panier</h1>
+            <p class="text-muted">Modifiez les quantités ou validez votre commande.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container basket">
+            <div class="panel" id="basket-list">
+                <p class="text-muted">Chargement du panier...</p>
+            </div>
+            <div class="panel">
+                <h3>Récapitulatif</h3>
+                <div class="totals mt">
+                    <div><span>Sous-total</span><strong id="basket-subtotal">0.00 TND</strong></div>
+                    <div><span>TVA (13%)</span><strong id="basket-tax">0.00 TND</strong></div>
+                    <div><span>Total</span><strong id="basket-total">0.00 TND</strong></div>
+                </div>
+                <button class="btn mt" id="invoice-btn"><i class="fas fa-file-invoice"></i> Afficher la facture</button>
+                <button class="btn mt" id="checkout-btn"><i class="fas fa-check"></i> Commander</button>
+                <button class="btn mt" id="clear-btn" style="background:#c4473b"><i class="fas fa-trash"></i> Vider le panier</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="invoice-modal">
+        <div class="modal-content panel" id="invoice-content">
+            <button class="close-modal" id="close-invoice">×</button>
+            <h3>Facture</h3>
+            <div id="invoice-items" class="mt"></div>
+            <div class="totals mt">
+                <div><span>Sous-total</span><strong id="inv-sub">0.00 TND</strong></div>
+                <div><span>TVA (13%)</span><strong id="inv-tax">0.00 TND</strong></div>
+                <div><span>Total</span><strong id="inv-total">0.00 TND</strong></div>
+            </div>
+            <button class="btn mt" id="print-invoice"><i class="fas fa-print"></i> Imprimer</button>
+        </div>
+    </div>
+
+    <div class="modal" id="success-modal">
+        <div class="modal-content success-card">
+            <button class="close-modal" id="close-success">×</button>
+            <i class="fas fa-check-circle" style="font-size:42px;color:#4caf50;margin-bottom:10px;"></i>
+            <h3>Commande validée</h3>
+            <p class="text-muted">Merci pour votre confiance. Votre commande a été enregistrée.</p>
+            <a class="btn mt" href="index.html"><i class="fas fa-home"></i> Retour à l’accueil</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <h3>Café Bohème</h3>
+                <p>L'excellence du café artisanal dans une ambiance chaleureuse.</p>
+            </div>
+            <div>
+                <h3>Horaires</h3>
+                <p>Lun - Ven: 7h00 - 20h00</p>
+                <p>Sam - Dim: 8h00 - 22h00</p>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p><i class="fas fa-phone"></i> +216 12 345 678</p>
+                <p><i class="fas fa-envelope"></i> contact@cafeboheme.tn</p>
+            </div>
+            <div>
+                <h3>Réseaux</h3>
+                <p class="text-muted">Suivez-nous pour les nouveautés.</p>
+            </div>
+        </div>
+        <div class="container center" style="margin-top:12px;">
+            <small>&copy; 2025 Café Bohème. Tous droits réservés.</small>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/basket.js"></script>
+</body>
+</html>
+
