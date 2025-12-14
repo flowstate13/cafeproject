@@ -1,15 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const slides = Array.from(document.querySelectorAll('.slide'));
-    if (slides.length) {
-        let i = 0;
-        slides[i].classList.add('active');
-        setInterval(() => {
-            slides[i].classList.remove('active');
-            i = (i + 1) % slides.length;
-            slides[i].classList.add('active');
-        }, 4500);
-    }
-
+    // Cart badge functionality
     const badge = document.getElementById('cart-count');
     if (badge) {
         const cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -18,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         badge.style.display = total ? 'grid' : 'none';
     }
 
-    // Défilement fluide
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
             const target = document.querySelector(link.getAttribute('href'));
@@ -29,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Hover CTA
+    // CTA hover effects
     const cta = document.querySelector('.cta');
     if (cta) {
         cta.addEventListener('mouseenter', () => {
