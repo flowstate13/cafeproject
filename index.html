@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café Bohème - Accueil</title>
+    <title>Café Bohème - L'Art du Café</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -22,9 +22,13 @@
                         <li><a href="index.html" class="active">Accueil</a></li>
                         <li><a href="menu.html">Menu</a></li>
                         <li><a href="contact.html">Contact</a></li>
+                        <li><a href="admin/login.php"><i class="fas fa-lock"></i> Admin</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
+                    <button id="theme-toggle" class="icon-btn" title="Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
                     <a href="basket.html" class="cart-btn" title="Panier">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count" id="cart-count">0</span>
@@ -34,72 +38,252 @@
         </div>
     </header>
 
-    <!-- Hero Banner -->
-    <section class="hero-banner">
-        <div class="slide active">
-            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&h=600&fit=crop" alt="Café intérieur">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
             <div class="hero-content">
-                <h1>L'Art du Café Réinventé</h1>
-                <p>Un voyage sensoriel dans l'univers des cafés d'exception</p>
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Meilleur café de Sousse</span>
+                    </div>
+                    <h1>L'Art du <span class="highlight">Café</span> Réinventé</h1>
+                    <p class="hero-description">Découvrez une expérience sensorielle unique où l'excellence du café rencontre l'élégance contemporaine. Chaque tasse raconte une histoire de passion et de savoir-faire.</p>
+                    <div class="hero-buttons">
+                        <a href="menu.html" class="btn-primary">
+                            <i class="fas fa-mug-hot"></i>
+                            Voir le Menu
+                        </a>
+                        <a href="contact.html" class="btn-secondary">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Nous Trouver
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">5+</div>
+                            <div class="hero-stat-label">Années d'Excellence</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">50K+</div>
+                            <div class="hero-stat-label">Clients Satisfaits</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">100%</div>
+                            <div class="hero-stat-label">Café Artisanal</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=700&fit=crop" alt="Café artisanal">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Pourquoi Nous Choisir</span>
+                <h2>Une Expérience Unique</h2>
+                <p>Découvrez ce qui rend Café Bohème spécial</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Produits Bio & Locaux</h3>
+                    <p>Nous sourçons nos grains auprès de producteurs locaux certifiés biologiques, garantissant une fraîcheur exceptionnelle.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Baristas Certifiés</h3>
+                    <p>Notre équipe de baristas passionnés est certifiée et formée aux techniques les plus raffinées de l'art du café.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Espace de Travail</h3>
+                    <p>Wi-Fi haut débit, prises électriques et un environnement calme pour travailler en toute sérénité.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Ambiance Chaleureuse</h3>
+                    <p>Un décor élégant et convivial qui vous fera sentir comme chez vous dès votre première visite.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Service Rapide</h3>
+                    <p>Préparation soignée mais rapide pour respecter votre temps sans compromettre la qualité.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Pâtisseries Fraîches</h3>
+                    <p>Nos pâtisseries sont préparées chaque matin sur place avec des ingrédients naturels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Preview Section -->
+    <section class="menu-preview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nos Spécialités</span>
+                <h2>Découvrez Notre Menu</h2>
+                <p>Une sélection de nos créations les plus populaires</p>
+            </div>
+            <div class="menu-preview-grid">
+                <div class="menu-preview-card">
+                    <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=400&h=300&fit=crop" alt="Cappuccino">
+                    <div class="menu-preview-content">
+                        <h3>Cappuccino Signature</h3>
+                        <p>Espresso riche, lait mousseux et poudre de cacao</p>
+                        <div class="menu-preview-footer">
+                            <span class="price">8.500 TND</span>
+                            <a href="menu.html" class="btn btn-sm">Commander</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-preview-card">
+                    <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=400&h=300&fit=crop" alt="Latte">
+                    <div class="menu-preview-content">
+                        <h3>Latte Artisanal</h3>
+                        <p>Lait crémeux avec un espresso parfaitement extrait</p>
+                        <div class="menu-preview-footer">
+                            <span class="price">9.000 TND</span>
+                            <a href="menu.html" class="btn btn-sm">Commander</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-preview-card">
+                    <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=400&h=300&fit=crop" alt="Croissant">
+                    <div class="menu-preview-content">
+                        <h3>Croissant au Beurre</h3>
+                        <p>Fait maison chaque matin, croustillant et doré</p>
+                        <div class="menu-preview-footer">
+                            <span class="price">4.500 TND</span>
+                            <a href="menu.html" class="btn btn-sm">Commander</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-preview-card">
+                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=300&fit=crop" alt="Cheesecake">
+                    <div class="menu-preview-content">
+                        <h3>Cheesecake New York</h3>
+                        <p>Onctueux avec coulis de fruits rouges frais</p>
+                        <div class="menu-preview-footer">
+                            <span class="price">12.000 TND</span>
+                            <a href="menu.html" class="btn btn-sm">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="menu.html" class="btn-primary">
+                    <i class="fas fa-th-list"></i>
+                    Voir Tout le Menu
+                </a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section>
+    <section class="about">
         <div class="container">
-            <div class="panel">
-                <div class="split">
-                    <div>
-                        <span class="tag">Depuis 2020</span>
-                        <h2 class="section-title">Bienvenue au Café Bohème</h2>
-                        <p>Niché au cœur de Sousse, Café Bohème est bien plus qu'un simple café. C'est un sanctuaire urbain où l'art du café rencontre l'élégance contemporaine, créant une expérience sensorielle unique.</p>
-                        <p>Nous sélectionnons avec soin nos grains de café auprès de producteurs locaux et internationaux, garantissant ainsi une qualité exceptionnelle dans chaque tasse. Notre équipe passionnée prépare chaque boisson avec attention et savoir-faire.</p>
-                        <p>Que vous veniez pour travailler, lire, ou simplement profiter d'un moment de détente, notre atmosphère conviviale et notre service attentionné feront de votre visite une expérience inoubliable.</p>
-                        <a href="menu.html" class="cta mt">
-                            <span>Découvrir notre menu</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&h=700&fit=crop" alt="Notre histoire">
+                    <div class="about-image-badge">
+                        <div class="number">5+</div>
+                        <div class="text">Années de Passion</div>
                     </div>
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&h=800&fit=crop" alt="Intérieur du café" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);">
+                </div>
+                <div class="about-text">
+                    <span class="section-tag">Notre Histoire</span>
+                    <h2>L'Art du Café Depuis 2020</h2>
+                    <p>Fondé par des passionnés de café, Café Bohème est né d'une vision simple mais ambitieuse : offrir à Sousse une expérience café digne des plus grandes capitales mondiales.</p>
+                    <p>Notre voyage a commencé avec une recherche minutieuse des meilleurs grains de café d'Éthiopie, de Colombie et du Brésil. Aujourd'hui, nous travaillons directement avec des producteurs qui partagent nos valeurs de qualité et de durabilité.</p>
+                    <p>Chaque jour, notre équipe s'efforce de créer un espace où vous pouvez vous échapper du tumulte quotidien, savourer un café exceptionnel et vous connecter avec d'autres passionnés.</p>
+                    <ul class="about-features">
+                        <li><i class="fas fa-check-circle"></i> Grains de café sélectionnés à la main</li>
+                        <li><i class="fas fa-check-circle"></i> Torréfaction artisanale sur place</li>
+                        <li><i class="fas fa-check-circle"></i> Éco-responsable et durable</li>
+                        <li><i class="fas fa-check-circle"></i> Formation continue de notre équipe</li>
+                    </ul>
+                    <a href="contact.html" class="btn-primary mt">
+                        <i class="fas fa-info-circle"></i>
+                        En Savoir Plus
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Témoignages</span>
+                <h2>Ce Que Disent Nos Clients</h2>
+                <p>Des expériences partagées par notre communauté</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Le meilleur cappuccino que j'ai jamais bu! L'ambiance est parfaite pour travailler ou se détendre. Je viens ici tous les matins depuis mon arrivée à Sousse."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Client">
+                        <div class="testimonial-author-info">
+                            <h4>Marie Ben Ali</h4>
+                            <p>Designer Freelance</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Un endroit magique avec un service impeccable. Les pâtisseries sont divines et le café toujours parfait. Mon café préféré sans aucun doute!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Client">
+                        <div class="testimonial-author-info">
+                            <h4>Ahmed Kaddour</h4>
+                            <p>Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"J'adore l'attention aux détails et la qualité des produits. C'est rare de trouver un tel niveau de qualité en Tunisie. Bravo à toute l'équipe!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Client">
+                        <div class="testimonial-author-info">
+                            <h4>Fatma Trabelsi</h4>
+                            <p>Professeure</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section style="background: var(--card);">
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
-            <h2 class="section-title center">Nos Valeurs</h2>
-            <p class="center text-muted">Ce qui fait de Café Bohème un lieu unique</p>
-            
-            <div class="cards mt">
-                <div class="panel">
-                    <div class="info-icon" style="margin: 0 auto 12px;">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3 class="center">Produits Locaux</h3>
-                    <p class="center">Nous privilégions les produits locaux et biologiques pour soutenir notre communauté et l'environnement.</p>
-                </div>
-                
-                <div class="panel">
-                    <div class="info-icon" style="margin: 0 auto 12px;">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3 class="center">Service Amical</h3>
-                    <p class="center">Notre équipe accueillante est toujours là pour vous servir avec le sourire et vous faire sentir comme chez vous.</p>
-                </div>
-                
-                <div class="panel">
-                    <div class="info-icon" style="margin: 0 auto 12px;">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="center">Ambiance Conviviale</h3>
-                    <p class="center">Un espace chaleureux où chacun se sent bienvenu, parfait pour se détendre ou travailler dans le calme.</p>
-                </div>
-            </div>
+            <h2>Prêt à Découvrir l'Excellence?</h2>
+            <p>Venez nous rendre visite et laissez-vous séduire par l'art du café. Votre première tasse est sur nous!</p>
+            <a href="menu.html" class="btn-primary">
+                <i class="fas fa-coffee"></i>
+                Commander Maintenant
+            </a>
         </div>
     </section>
 
@@ -107,52 +291,45 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Café Bohème</h3>
-                    <p>L'excellence du café artisanal dans une ambiance bohème et raffinée.</p>
+                <div class="footer-brand">
+                    <h3><i class="fas fa-coffee"></i> Café Bohème</h3>
+                    <p>L'excellence du café artisanal dans une ambiance bohème et raffinée. Venez découvrir notre passion pour le café d'exception.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Horaires d'ouverture</h3>
-                    <p>Lundi - Vendredi: 7h00 - 20h00</p>
-                    <p>Samedi - Dimanche: 8h00 - 22h00</p>
+                <div>
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="basket.html">Panier</a></li>
+                    </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
+                <div>
+                    <h4>Horaires</h4>
+                    <ul class="footer-links">
+                        <li>Lun - Ven: 7h00 - 20h00</li>
+                        <li>Sam - Dim: 8h00 - 22h00</li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
                     <p><i class="fas fa-phone"></i> +216 12 345 678</p>
                     <p><i class="fas fa-envelope"></i> contact@cafeboheme.tn</p>
                     <p><i class="fas fa-map-marker-alt"></i> Avenue Habib Bourguiba, Sousse</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Suivez-nous</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Café Bohème. Tous droits réservés.</p>
+                <p>&copy; 2025 Café Bohème. Tous droits réservés. Crafted with <i class="fas fa-heart" style="color: var(--accent);"></i> in Sousse</p>
             </div>
         </div>
     </footer>
 
     <script src="js/theme.js"></script>
-    <script>
-        // Simple slideshow (if you want multiple slides, add more)
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[n].classList.add('active');
-        }
-        
-        // Auto-advance every 5 seconds (optional)
-        // setInterval(() => {
-        //     currentSlide = (currentSlide + 1) % slides.length;
-        //     showSlide(currentSlide);
-        // }, 5000);
-    </script>
 </body>
 </html>

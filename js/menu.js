@@ -1,13 +1,30 @@
-const products = [
-    { id: 'p1', name: 'Espresso', category: 'boissons-chaudes', price: 3.5, description: 'Café court et intense.', image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400&h=300&fit=crop' },
-    { id: 'p2', name: 'Cappuccino', category: 'boissons-chaudes', price: 4.5, description: 'Mousse de lait généreuse.', image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&h=300&fit=crop' },
-    { id: 'p3', name: 'Latte vanille', category: 'boissons-chaudes', price: 5, description: 'Note douce et sucrée.', image: 'https://images.unsplash.com/photo-1561047029-3000c68339ca?w=400&h=300&fit=crop' },
-    { id: 'p4', name: 'Ice latte', category: 'boissons-froides', price: 5.5, description: 'Version glacée rafraîchissante.', image: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=300&fit=crop' },
-    { id: 'p5', name: 'Frappuccino caramel', category: 'boissons-froides', price: 6, description: 'Crémeux et gourmand.', image: 'https://images.unsplash.com/photo-1562155955-1cb2d73488d7?w=400&h=300&fit=crop' },
-    { id: 'p6', name: 'Croissant beurre', category: 'patisseries', price: 2.5, description: 'Feuilleté croustillant.', image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=300&fit=crop' },
-    { id: 'p7', name: 'Cheesecake', category: 'patisseries', price: 5, description: 'Crémeux et citronné.', image: 'https://images.unsplash.com/photo-1702925614886-50ad13c88d3f?q=80&w=789&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-    { id: 'p8', name: 'Sandwich poulet', category: 'sandwiches', price: 7, description: 'Poulet grillé et crudités.', image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&h=300&fit=crop' }
-];
+// Fetch products from database API
+let products = [];
+let isLoading = true;
+
+const fetchProducts = async (category = 'all') => {
+    try {
+        const response = await fetch(`api/products.php?action=list&category=${category}`);
+        const data = await response.json();
+        if (data.success) {
+            products = data.data.map(p => ({
+                id: 'p' + p.id,
+                dbId: p.id,
+                name: p.name,
+                category: p.category,
+                price: parseFloat(p.price),
+                description: p.description,
+                image: p.image,
+                stock: p.stock
+            }));
+        }
+    } catch (error) {
+        console.error('Error fetching products:', error);
+        grid.innerHTML = '<p style="text-align:center;color:#888;">Erreur de chargement du menu.</p>';
+    } finally {
+        isLoading = false;
+    }
+};
 
 let cart = [];
 let activeCategory = 'all';
@@ -69,25 +86,34 @@ const sortProducts = list => {
 };
 
 const renderProducts = () => {
+    if (isLoading) {
+        grid.innerHTML = '<p style="text-align:center;color:#888;"><i class="fas fa-spinner fa-spin"></i> Chargement...</p>';
+        return;
+    }
     const filtered = activeCategory === 'all'
         ? products
         : products.filter(p => p.category === activeCategory);
     const items = sortProducts(filtered);
     grid.innerHTML = '';
+    if (items.length === 0) {
+        grid.innerHTML = '<p style="text-align:center;color:#888;">Aucun produit disponible.</p>';
+        return;
+    }
     items.forEach(p => grid.appendChild(buildCard(p)));
 };
 
-document.addEventListener('click', e => {
+document.addEventListener('click', async e => {
     const addBtn = e.target.closest('button[data-id]');
     if (addBtn) {
         const product = products.find(p => p.id === addBtn.dataset.id);
         if (product) addToCart(product);
     }
     const chip = e.target.closest('.chip');
-    if (chip) {
+    if (chip && chip.tagName === 'BUTTON') {
         document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
         activeCategory = chip.dataset.category;
+        await fetchProducts(activeCategory);
         renderProducts();
     }
 });
@@ -125,9 +151,10 @@ const handleCustomCoffee = e => {
     e.target.reset();
 };
 
-const init = () => {
+const init = async () => {
     cart = JSON.parse(localStorage.getItem(cartKey) || '[]');
     updateBadge();
+    await fetchProducts();
     renderProducts();
     const form = document.getElementById('custom-coffee-form');
     if (form) form.addEventListener('submit', handleCustomCoffee);
